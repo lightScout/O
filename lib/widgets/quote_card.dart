@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:oapp/widgets/size_animation_widget.dart';
 
 class QuoteCard extends StatefulWidget {
+  final String title;
+  QuoteCard({this.title});
+
   @override
   _QuoteCardState createState() => _QuoteCardState();
 }
@@ -24,7 +27,7 @@ class _QuoteCardState extends State<QuoteCard> {
         child: Center(
           child: GestureDetector(
             child: Text(
-              'Poetry',
+              widget.title,
               style: TextStyle(
                 fontSize: 40,
                 color: Color(0xFFA9BDDB),
