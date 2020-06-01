@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:oapp/widgets/list_builder.dart';
 import 'components/carousel.dart';
 
 class MessagesScreen extends StatelessWidget {
@@ -6,7 +7,6 @@ class MessagesScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        color: Colors.white,
         child: Container(
           decoration: BoxDecoration(
             gradient: LinearGradient(
@@ -18,6 +18,7 @@ class MessagesScreen extends StatelessWidget {
             padding: EdgeInsets.only(top: 48),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
               children: <Widget>[
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -47,11 +48,7 @@ class MessagesScreen extends StatelessWidget {
 //                        Icon(Icons.settings, color: Colors.white),
                   ],
                 ),
-                Center(
-                    child: Padding(
-                  padding: EdgeInsets.only(top: 200.0),
-                  child: Carousel(),
-                )),
+                Flexible(child: Carousel()),
               ],
             ),
           ),

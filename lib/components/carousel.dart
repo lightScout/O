@@ -9,13 +9,15 @@ class Carousel extends StatelessWidget {
     return Container(
       child: CarouselSlider.builder(
         itemCount: 15,
-        itemBuilder: (BuildContext context, int itemIndex) => QuoteCard(),
+        itemBuilder: (BuildContext context, int itemIndex) => QuoteCard(
+          title: 'Test',
+        ),
         options: CarouselOptions(
           autoPlay: false,
           scrollPhysics: ScrollPhysics(),
           scrollDirection: Axis.horizontal,
-          height: 500,
-          viewportFraction: 0.65,
+          height: MediaQuery.of(context).size.height,
+          viewportFraction: 1.0,
           initialPage: 1,
           enableInfiniteScroll: true,
         ),

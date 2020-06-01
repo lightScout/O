@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:rxdart/rxdart.dart';
+import 'dart:math' as math;
 
 class SizeAnimation extends StatefulWidget {
   final Widget child;
@@ -38,7 +39,7 @@ class SizeAnimationState extends State<SizeAnimation>
     isOpenedStream = isOpenedStreamController.stream;
     isOpenedSink = isOpenedStreamController.sink;
 
-    _widthAnimation = Tween<double>(begin: .5, end: 1.0).animate(
+    _widthAnimation = Tween<double>(begin: .65, end: 1.0).animate(
       CurvedAnimation(curve: Curves.easeInOut, parent: _animationController),
     );
 
@@ -77,12 +78,23 @@ class SizeAnimationState extends State<SizeAnimation>
     return GestureDetector(
       onTap: () {
         onPressed();
+        print('object');
       },
-      child: Container(
-        alignment: Alignment.center,
-        width: MediaQuery.of(context).size.width * _widthAnimation.value,
-        height: _heightAnimation.value,
-        child: widget.child,
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: AnimatedBuilder(
+          animation: _widthAnimation,
+          child: Container(
+            alignment: Alignment.center,
+            child: widget.child,
+          ),
+          builder: (context, child) {
+            return Transform.scale(
+              scale: _widthAnimation.value,
+              child: child,
+            );
+          },
+        ),
       ),
     );
   }

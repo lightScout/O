@@ -13,19 +13,24 @@ class _QuoteCardState extends State<QuoteCard> {
   @override
   Widget build(BuildContext context) {
     return SizeAnimation(
-      child: Container(
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.only(
-            topRight: Radius.elliptical(100, 100),
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Container(
+          width: MediaQuery.of(context).size.width,
+          decoration: BoxDecoration(
+            border: Border.all(
+              color: Colors.white,
+              width: 5.0,
+            ),
+            color: Color(0xFFC3E6FE),
+            borderRadius: BorderRadius.only(
+              topRight: Radius.elliptical(100, 100),
 //          topLeft: Radius.elliptical(100, 100),
-            bottomRight: Radius.elliptical(100, 100),
-            bottomLeft: Radius.elliptical(100, 100),
+              bottomRight: Radius.elliptical(100, 100),
+              bottomLeft: Radius.elliptical(100, 100),
+            ),
           ),
-        ),
-        width: 400,
-        child: Center(
-          child: GestureDetector(
+          child: Center(
             child: Text(
               widget.title,
               style: TextStyle(

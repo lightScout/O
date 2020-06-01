@@ -4,7 +4,15 @@ import 'dart:collection';
 import 'package:oapp/model/card.dart';
 
 class CardData extends ChangeNotifier {
-  List<Card> _cardList = [];
+  List<Card> _cardList = [
+    Card(name: 'Poetry', category: 'Poetry'),
+    Card(name: 'Poetry', category: 'Poetry'),
+    Card(name: 'Poetry', category: 'Poetry'),
+    Card(name: 'Poetry', category: 'Poetry'),
+    Card(name: 'Poetry', category: 'Poetry'),
+    Card(name: 'Poetry', category: 'Poetry'),
+    Card(name: 'Poetry', category: 'Poetry'),
+  ];
 
   UnmodifiableListView<Card> get cardList {
     UnmodifiableListView<Card> list;
